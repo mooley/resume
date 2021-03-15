@@ -1,14 +1,15 @@
 // Fonts
+@font-face {
+	font-family: 'Bodoni Classic Bold';
+	src: url('fonts/Bodoni\ Classic/Bodoni\ Classic\ Bold/Bodoni\ Classic\ Bold.ttf');
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Arbutus+Slab&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
 
-$font-headline: 'Playfair Display SC', serif;
-$font-titles: 'Josefin Sans', sans-serif;
-$font-content: 'Lato', sans-serif;
+$font-headline: 'Bodoni Classic Bold';
+$font-titles: 'Open Sans';
+$font-content: 'Nunito';
 
 // Color pallette
 
@@ -26,6 +27,10 @@ html {
 	align-items: center;
 }
 
+@mixin debug {
+	border: 1px solid red;
+}
+
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -33,10 +38,56 @@ html {
 }
 
 body {
+	display: grid;
+	grid-template-areas:
+		'headline headline'
+		'extra-info main-content';
+
 	margin: 0;
 	padding: 0;
-	font-family: 'Lato', sans-serif;
-	width: 970px;
+	font-family: $font-content;
+
+	header {
+		grid-area: headline;
+	}
+
+	main {
+		grid-area: main-content;
+	}
+
+	aside {
+		grid-area: extra-info;
+	}
+}
+
+h1 {
+	font-family: $font-headline, serif;
+	letter-spacing: 0.4rem;
+	font-size: 7rem;
+	font-variant: small-caps;
+}
+
+h1::before {
+	content: '';
+	width: 50vw;
+	height: 2px;
+	background-color: $color-white;
+	display: inline-block;
+	position: relative;
+	vertical-align: middle;
+	margin-left: -50vw;
+	right: 1em;
+}
+
+h2 {
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+}
+
+h3 {
+	border-style: none none solid none;
+	border-color: $color-lighgrey;
+	border-width: 1px;
 }
 
 header {
@@ -49,17 +100,34 @@ header {
 
 	background-color: $color-darkblue;
 	color: $color-white;
-	// font-family: 'Italiana';
 
-	h1 {
-		font-family: 'Bodoni Moda', serif;
-		letter-spacing: 0.4rem;
-		font-size: 4rem;
-		font-weight: 600;
-		font-variant: small-caps;
-	}
+	// @include debug();
 
 	p {
+		font-family: $font-titles;
 		font-size: 2rem;
+		text-transform: uppercase;
+		letter-spacing: 0.4rem;
+	}
+
+	p::after {
+		content: '';
+		display: inline-block;
+		width: 50vw;
+		height: 2px;
+		margin-right: -50vw;
+		position: relative;
+		left: 5em;
+		vertical-align: middle;
+		background-color: $color-white;
+	}
+}
+
+.examples {
+	box-sizing: border-box;
+
+	img {
+		max-width: 100%;
+		height: auto;
 	}
 }

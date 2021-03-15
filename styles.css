@@ -1,8 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Arbutus+Slab&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap");
+@font-face {
+  font-family: "Bodoni Classic Bold";
+  src: url("fonts/Bodoni Classic/Bodoni Classic Bold/Bodoni Classic Bold.ttf");
+}
 html {
   scroll-behavior: smooth;
   display: flex;
@@ -17,10 +18,50 @@ html {
 }
 
 body {
+  display: grid;
+  grid-template-areas: "headline headline" "extra-info main-content";
   margin: 0;
   padding: 0;
-  font-family: "Lato", sans-serif;
-  width: 970px;
+  font-family: "Nunito";
+}
+body header {
+  grid-area: headline;
+}
+body main {
+  grid-area: main-content;
+}
+body aside {
+  grid-area: extra-info;
+}
+
+h1 {
+  font-family: "Bodoni Classic Bold", serif;
+  letter-spacing: 0.4rem;
+  font-size: 7rem;
+  font-variant: small-caps;
+}
+
+h1::before {
+  content: "";
+  width: 50vw;
+  height: 2px;
+  background-color: #eff0f0;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  margin-left: -50vw;
+  right: 1em;
+}
+
+h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+h3 {
+  border-style: none none solid none;
+  border-color: #b0b7b7;
+  border-width: 1px;
 }
 
 header {
@@ -33,15 +74,30 @@ header {
   background-color: #263749;
   color: #eff0f0;
 }
-header h1 {
-  font-family: "Bodoni Moda", serif;
-  letter-spacing: 0.4rem;
-  font-size: 4rem;
-  font-weight: 600;
-  font-variant: small-caps;
-}
 header p {
+  font-family: "Open Sans";
   font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+}
+header p::after {
+  content: "";
+  display: inline-block;
+  width: 50vw;
+  height: 2px;
+  margin-right: -50vw;
+  position: relative;
+  left: 5em;
+  vertical-align: middle;
+  background-color: #eff0f0;
+}
+
+.examples {
+  box-sizing: border-box;
+}
+.examples img {
+  max-width: 100%;
+  height: auto;
 }
 
 /*# sourceMappingURL=styles.css.map */
