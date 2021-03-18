@@ -23,6 +23,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Nunito";
+  width: 80vmax;
 }
 body header {
   grid-area: headline;
@@ -34,34 +35,12 @@ body aside {
   grid-area: extra-info;
 }
 
-h1 {
-  font-family: "Bodoni Classic Bold", serif;
-  letter-spacing: 0.4rem;
-  font-size: 7rem;
-  font-variant: small-caps;
-}
-
-h1::before {
-  content: "";
-  width: 50vw;
-  height: 2px;
-  background-color: #eff0f0;
-  display: inline-block;
-  position: relative;
-  vertical-align: middle;
-  margin-left: -50vw;
-  right: 1em;
-}
-
 h2 {
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
-}
-
-h3 {
   border-style: none none solid none;
   border-color: #b0b7b7;
   border-width: 1px;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
 }
 
 header {
@@ -69,27 +48,49 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
   padding: 3rem 0;
+  box-sizing: border-box;
   background-color: #263749;
   color: #eff0f0;
+}
+header h1 {
+  font-family: "Bodoni Classic Bold", serif;
+  font-size: 5rem;
+  font-variant: small-caps;
+  display: flex;
+  width: 100%;
+  text-align: center;
 }
 header p {
   font-family: "Open Sans";
   font-size: 2rem;
   text-transform: uppercase;
-  letter-spacing: 0.4rem;
+  letter-spacing: 0.3rem;
+  display: flex;
+  width: 100%;
+}
+header p::before,
+header p::after,
+header h1::before,
+header h1::after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 1px solid;
+  margin: auto;
+}
+header h1::before {
+  margin-right: 50px;
+}
+header h1::after {
+  margin-left: 50px;
+  color: #263749;
+}
+header p::before {
+  color: #263749;
+  margin-right: 30px;
 }
 header p::after {
-  content: "";
-  display: inline-block;
-  width: 50vw;
-  height: 2px;
-  margin-right: -50vw;
-  position: relative;
-  left: 5em;
-  vertical-align: middle;
-  background-color: #eff0f0;
+  margin-left: 30px;
 }
 
 .examples {

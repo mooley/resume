@@ -47,6 +47,8 @@ body {
 	padding: 0;
 	font-family: $font-content;
 
+	width: 80vmax;
+
 	header {
 		grid-area: headline;
 	}
@@ -60,34 +62,12 @@ body {
 	}
 }
 
-h1 {
-	font-family: $font-headline, serif;
-	letter-spacing: 0.4rem;
-	font-size: 7rem;
-	font-variant: small-caps;
-}
-
-h1::before {
-	content: '';
-	width: 50vw;
-	height: 2px;
-	background-color: $color-white;
-	display: inline-block;
-	position: relative;
-	vertical-align: middle;
-	margin-left: -50vw;
-	right: 1em;
-}
-
 h2 {
-	text-transform: uppercase;
-	letter-spacing: 0.2rem;
-}
-
-h3 {
 	border-style: none none solid none;
 	border-color: $color-lighgrey;
 	border-width: 1px;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
 }
 
 header {
@@ -95,31 +75,56 @@ header {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	gap: 1rem;
 	padding: 3rem 0;
+	box-sizing: border-box;
 
 	background-color: $color-darkblue;
 	color: $color-white;
 
-	// @include debug();
+	h1 {
+		font-family: $font-headline, serif;
+		font-size: 5rem;
+		font-variant: small-caps;
+		display: flex;
+		width: 100%;
+		text-align: center;
+	}
 
 	p {
 		font-family: $font-titles;
 		font-size: 2rem;
 		text-transform: uppercase;
-		letter-spacing: 0.4rem;
+		letter-spacing: 0.3rem;
+		display: flex;
+		width: 100%;
+	}
+
+	p::before,
+	p::after,
+	h1::before,
+	h1::after {
+		content: '';
+		flex: 1 1;
+		border-bottom: 1px solid;
+		margin: auto;
+	}
+
+	h1::before {
+		margin-right: 50px;
+	}
+
+	h1::after {
+		margin-left: 50px;
+		color: $color-darkblue;
+	}
+
+	p::before {
+		color: $color-darkblue;
+		margin-right: 30px;
 	}
 
 	p::after {
-		content: '';
-		display: inline-block;
-		width: 50vw;
-		height: 2px;
-		margin-right: -50vw;
-		position: relative;
-		left: 5em;
-		vertical-align: middle;
-		background-color: $color-white;
+		margin-left: 30px;
 	}
 }
 
