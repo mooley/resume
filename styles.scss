@@ -15,7 +15,7 @@ $font-content: 'Nunito';
 
 $color-black: #272727;
 $color-darkblue: #263749;
-$color-lighgrey: #b0b7b7;
+$color-lighgrey: #effaff;
 $color-white: #eff0f0;
 
 // Initial setup
@@ -27,6 +27,8 @@ html {
 	align-items: center;
 }
 
+// Mixins
+
 @mixin debug {
 	border: 1px solid red;
 }
@@ -37,17 +39,21 @@ html {
 	padding: 0;
 }
 
+// Body and commands for the whole document
+
 body {
 	display: grid;
 	grid-template-areas:
 		'headline headline'
 		'extra-info main-content';
+	grid-template-columns: 1fr 2fr;
 
 	margin: 0;
 	padding: 0;
 	font-family: $font-content;
 
-	width: 80vmax;
+	width: 816.37795276px;
+	height: 1054.488189px;
 
 	header {
 		grid-area: headline;
@@ -67,7 +73,34 @@ h2 {
 	border-color: $color-lighgrey;
 	border-width: 1px;
 	text-transform: uppercase;
-	letter-spacing: 0.2rem;
+	letter-spacing: 0.1rem;
+	font-family: $font-titles;
+	font-size: 1.2rem;
+	margin-bottom: 1rem;
+}
+
+h3 {
+	margin: 0.5rem 0;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+	color: initial;
+	font-size: 16px;
+}
+
+p {
+	font-size: 18px;
+	line-height: 1.5rem;
+}
+
+.dates {
+	font-style: italic;
+	color: #646464;
 }
 
 header {
@@ -75,7 +108,7 @@ header {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding: 3rem 0;
+	padding: 2rem 0;
 	box-sizing: border-box;
 
 	background-color: $color-darkblue;
@@ -83,8 +116,9 @@ header {
 
 	h1 {
 		font-family: $font-headline, serif;
-		font-size: 5rem;
+		font-size: 4rem;
 		font-variant: small-caps;
+		letter-spacing: 0.2rem;
 		display: flex;
 		width: 100%;
 		text-align: center;
@@ -92,9 +126,9 @@ header {
 
 	p {
 		font-family: $font-titles;
-		font-size: 2rem;
+		font-size: 1.3rem;
 		text-transform: uppercase;
-		letter-spacing: 0.3rem;
+		letter-spacing: 0.1rem;
 		display: flex;
 		width: 100%;
 	}
@@ -104,7 +138,7 @@ header {
 	h1::before,
 	h1::after {
 		content: '';
-		flex: 1 1;
+		flex: 1;
 		border-bottom: 1px solid;
 		margin: auto;
 	}
@@ -128,11 +162,39 @@ header {
 	}
 }
 
-.examples {
-	box-sizing: border-box;
+main,
+aside {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
 
-	img {
-		max-width: 100%;
-		height: auto;
+main {
+	padding: 1rem 0 0 1rem;
+}
+
+aside {
+	padding: 1rem 1rem 0 0;
+}
+
+svg {
+	width: 30px;
+	height: 30px;
+	fill: $color-darkblue;
+}
+
+#contact-info ul {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+
+	li {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
 	}
+}
+
+aside {
+	background-color: $color-lighgrey;
 }
